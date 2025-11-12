@@ -1,0 +1,28 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class Lab7P1 {
+    public static void main(String... args) {
+        Frame f = new Frame();
+        TextField tf = new TextField(20);
+        Button b = new Button("click"); 
+        Label l = new Label();
+        f.setLayout(new FlowLayout());
+        f.add(tf);
+        f.add(b);
+        f.add(l);
+        b.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent e){
+        		String text = tf.getText();
+        		l.setText("you typed:" +text);
+        	}
+        });
+        f.addWindowListener(new WindowAdapter(){
+        	public void windowClosing(WindowEvent e){
+        		f.dispose();
+        	}
+        });
+        f.setSize(400,600);
+        f.setVisible(true);
+    }
+}    
